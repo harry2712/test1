@@ -1,0 +1,18 @@
+on: push
+name:  Deploy website on push
+jobs:
+  web-deploy:
+    name:  Deploy
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get latest codes
+      uses: actions/checkout@v2
+    
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.2.0
+      with:
+        server: 162.254.32.31
+        username: testwor
+        password: TtDrdWx7
+        server-dir: public_html/githubtest/
+        log-level: verbose
